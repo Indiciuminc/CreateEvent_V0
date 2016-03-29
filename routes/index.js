@@ -4,7 +4,6 @@ var mongoose = require('mongoose');
 
 var Event = mongoose.model('Event');
 
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -12,12 +11,11 @@ router.get('/', function(req, res, next) {
 
 module.exports = router;
 
-
 router.get('/events', function(req, res, next) {
   Event.find(function(err, events){
     if(err){ return next(err); }
 
-    res.json(event);
+    res.json(events);
   });
 });
 
@@ -30,6 +28,7 @@ router.post('/events', function(req, res, next) {
     res.json(event);
   });
 });
+
 
 router.param('event', function(req, res, next, id) {
   var query = Event.findById(id);

@@ -1,14 +1,26 @@
+var mongoose = require('mongoose');
+var mongodbUri = 'mongodb://ds023098.mlab.com:23098/news';
+
+var options = {
+  user: 'admin',
+  pass: 'P@ssw0rd'
+}
+mongoose.connect(mongodbUri, options);
+
+require('./models/Events');
+require('./models/Posts');
+require('./models/Comments');
+require('./models/Users');
+require('./config/passport');
+
+var passport = require('passport');
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/news');
-require('./models/Posts');
-require('./models/Comments');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -28,6 +40,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(passport.initialize());
 
 app.use('/', routes);
 app.use('/users', users);

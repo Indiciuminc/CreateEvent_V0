@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
+var mongoose = require('mongoose');
 
+var Event = mongoose.model('Event');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -9,24 +11,33 @@ router.get('/', function(req, res, next) {
 
 module.exports = router;
 
-var mongoose = require('mongoose');
-var Post = mongoose.model('Post');
-var Comment = mongoose.model('Comment');
-
-router.get('/posts', function(req, res, next) {
-  Post.find(function(err, posts){
+router.get('/events', function(req, res, next) {
+  Event.find(function(err, events){
     if(err){ return next(err); }
 
-    res.json(posts);
+    res.json(events);
   });
 });
 
-router.post('/posts', function(req, res, next) {
-  var post = new Post(req.body);
+router.post('/events', function(req, res, next) {
+  var event = new event(req.body);
 
-  post.save(function(err, post){
+  event.save(function(err, event){
     if(err){ return next(err); }
 
-    res.json(post);
+    res.json(event);
+  });
+});
+
+
+router.param('event', function(req, res, next, id) {
+  var query = Event.findById(id);
+
+  query.exec(function (err, event){
+    if (err) { return next(err); }
+    if (!event) { return next(new Error('can\'t find Event')); }
+
+    req.event = event;
+    return next();
   });
 });
