@@ -8,12 +8,6 @@ var options = {
 mongoose.connect(mongodbUri, options);
 
 require('./models/Events');
-require('./models/Posts');
-require('./models/Comments');
-require('./models/Users');
-require('./config/passport');
-
-var passport = require('passport');
 
 var express = require('express');
 var path = require('path');
@@ -40,8 +34,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-app.use(passport.initialize());
 
 app.use('/', routes);
 app.use('/users', users);
