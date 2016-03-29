@@ -1,11 +1,11 @@
 var mongoose = require('mongoose');
 
 var EventSchema = new mongoose.Schema({
-  event_T: String,
-  event_S: String,
+  title: String,
+  subtitle: String,
   date: { type: Date, default: Date.now },
-  start_T: String,
-  end_T: String,
+  s_Time: String,
+  e_Time: String,
   regist: Boolean,
   addmis: String,
   event_I: String,
@@ -23,15 +23,5 @@ var EventSchema = new mongoose.Schema({
   upvotes: {type: Number, default: 0},
   comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }]
 });
-
-EventSchema.methods.upvote = function(cb) {
-  this.upvotes += 1;
-  this.save(cb);
-};
-
-EventSchema.methods.downvote = function(cb) {
-  this.upvotes -= 1;
-  this.save(cb);
-};
 
 mongoose.model('Event', EventSchema);

@@ -9,16 +9,6 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
   </head>
 <body ng-app="createEvent">
-  <body ng-app="flapperNews">
-  <nav class="navbar navbar-default navbar-right" ng-controller="NavCtrl">
-    <ul class="nav navbar-nav">
-      <li ng-show="isLoggedIn()"><a>{{ currentUser() }}</a></li>
-      <li ng-show="isLoggedIn()"><a href="" ng-click="logOut()">Log Out</a></li>
-      <li ng-hide="isLoggedIn()"><a href="/#/login">Log In</a></li>
-      <li ng-hide="isLoggedIn()"><a href="/#/register">Register</a></li>
-    </ul>
-  </nav>
-   
   <div class="row">
     <div class="text-center col-md-4 col-md-offset-3">
       <ui-view></ui-view>
@@ -30,109 +20,26 @@
       <img src="https://storage.googleapis.com/nowmapr_v0/img/nowmapr.jpg" alt="nowmapr" height="75" width="225">
     </div>
 
-    <div ng-repeat="post in posts | orderBy: '-upvotes'">
+    <div ng-repeat="event in events">
       <span style="font-size:20px;margin-left:10px">
           ({{event.event_T}})
       </span>
-		 </br>
-      <span>
-        <p>Event Subtitle</p>
-          ({{event.event_S}})
-      </span>
-      </br>
-      
-      <span>
-        <p>Event Date</p>
-          ({{event.date}})
-      </span>
-      </br>
-      
-      <span>
-        <p>Event Start Time</p>
-          ({{event.start_T}})
-      </span>
-      </br>
-      
-      <span>
-        <p>Event End Time</p>
-          ({{event.end_T}})
-      </span>
-      </br>
-      
-      <span>
-        <p>Event Registration</p>
-          ({{event.regist}})
-      </span>
-      </br>
-      
-      <span>
-        <p>Event Addmission</p>
-          ({{event.addmis}})
-      </span>
-      </br>
-      
-      <span>
-        <p>Event Information</p>
-          ({{event.event_I}})
-      </span>
-      </br>
-      
-      <span>
-        <p>Event Key</p>
-          ({{event.event_Key}})
-      </span>
-      </br>
-      
-      <span>
-        <p>Event Address</p>
-          ({{event.street_Nu}} + ',' {{event.street_Na}} + ',' + {{event.city}} + ',' + {{event.prosta}} + ',' + {{event.postzip}})
-      </span>
-      </br>
-      
-      <span>
-        <p> Event Web Page</p>
-      </span>
-      </br>
-      
-      <span>
-        <p>Event Facebook Page</p>
-          ({{event.faceb}})
-      </span>
-      </br>
-      
-      <span>
-        <p>Event Instagram Page</p>
-          ({{event.insta}})
-      </span>
-      </br>
-      
-      <span>
-        <p>Event Twitter Feed</p>
-          ({{event.tweet}})
-      </span>
-      </br>
-      
-      <span>
-        <p>Event Google+ Page</p>
-          ({{event.google}})
-      </span>
-      </div>
+		</div>
     
-    <div class="form-group">
-    <form ng-submit="addEvent()" ng-show="isLoggedIn()" style="margin-top:30px">
+    <form ng-submit="addEvent()" style="margin-top:30px">
       <span>
       <h3>Create a New Event</h3>
       
       <div class="text-left">
       <div class="form-group">
         <label for="Event Title">Event Title</label>
-        <input type="text" class="form-control" placeholder="Title" ng-model="event_T">
+        <input type="text" class="form-control" placeholder="Title" ng-model="title">
       </div>
       </br>
 
       <div class="form-group">
         <label for="Event Subtitle">Event Subtitle</label>
-        <input type="text" class="form-control" placeholder="Subtitle" ng-model="event_S">
+        <input type="text" class="form-control" placeholder="Subtitle" ng-model="subtitle">
       </div>
       </br>
       
@@ -145,7 +52,7 @@
       <div class="form-group">
         <div class="text-center">
         <label for="Start Time">Event Start Time</label>
-        <select placeholder="Start Time" ng-model="start_T">
+        <select placeholder="Start Time" ng-model="s_Time">
 	        <option value="5:00 AM">5:00 AM</option>
 	        <option value="5:15 AM">5:15 AM</option>
 	        <option value="5:30 AM">5:30 AM</option>
@@ -245,7 +152,7 @@
 	     <div class="text-center">
 	     </select>
         <label for="End Time">Event End Time</label>
-        <select placeholder="End Time" ng-model="end_T">
+        <select placeholder="End Time" ng-model="e_Time">
 	        <option value="5:00 AM">5:00 AM</option>
 	        <option value="5:15 AM">5:15 AM</option>
 	        <option value="5:30 AM">5:30 AM</option>
@@ -444,75 +351,12 @@
       </div>
       </br>
       
-      
-      </div>
 
       <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
     </form>
-    </div>
-	
-	<div ng-hide="isLoggedIn()">
-	  <h4>You need to <a href="/#/login">Log In</a> or <a href="/#/register">Register</a> before you can add a post.</h4>
-	</div>
-  </script>
+	</script>
 
-  <script type="text/ng-template" id="/register.html">
-  <div class="page-header">
-    <h1>Flapper News</h1>
-  </div>
-
-  <div ng-show="error" class="alert alert-danger row">
-    <span>{{ error.message }}</span>
-  </div>
-
-  <form ng-submit="register()"
-    style="margin-top:30px;">
-    <h3>Register</h3>
-
-    <div class="form-group">
-      <input type="text"
-      class="form-control"
-      placeholder="Username"
-      ng-model="user.username"></input>
-    </div>
-    <div class="form-group">
-      <input type="password"
-      class="form-control"
-      placeholder="Password"
-      ng-model="user.password"></input>
-    </div>
-    <button type="submit" class="btn btn-primary">Register</button>
-  </form>
-  </script>
   
-  <script type="text/ng-template" id="/login.html">
-  <div class="page-header">
-    <h1>Flapper News</h1>
-  </div>
-
-  <div ng-show="error" class="alert alert-danger row">
-    <span>{{ error.message }}</span>
-  </div>
-
-  <form ng-submit="logIn()"
-    style="margin-top:30px;">
-    <h3>Log In</h3>
-
-    <div class="form-group">
-      <input type="text"
-      class="form-control"
-      placeholder="Username"
-      ng-model="user.username"></input>
-    </div>
-    <div class="form-group">
-      <input type="password"
-      class="form-control"
-      placeholder="Password"
-      ng-model="user.password"></input>
-    </div>
-    <button type="submit" class="btn btn-primary">Log In</button>
-  </form>
-  </script>
-
 </body>
 </html>
