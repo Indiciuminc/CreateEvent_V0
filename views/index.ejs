@@ -20,12 +20,6 @@
       <img src="https://storage.googleapis.com/nowmapr_v0/img/nowmapr.jpg" alt="nowmapr" height="75" width="225">
     </div>
 
-    <div ng-repeat="event in events">
-      <span style="font-size:20px;margin-left:10px">
-          ({{event.event_T}})
-      </span>
-		</div>
-    
     <form ng-submit="addEvent()" style="margin-top:30px">
       <span>
       <h3>Create a New Event</h3>
@@ -352,7 +346,7 @@
       </br>
       
 
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <input type="submit" id="submit" value="Submit" />
       </div>
     </form>
 	</script>

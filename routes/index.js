@@ -20,7 +20,7 @@ router.get('/events', function(req, res, next) {
 });
 
 router.post('/events', function(req, res, next) {
-  var event = new event(req.body);
+  var event = new Event(req.body);
 
   event.save(function(err, event){
     if(err){ return next(err); }

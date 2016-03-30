@@ -107,9 +107,9 @@ function($scope, events) {
 
 }]);
 
-app.controller('EventsCtrl', ['$scope', 'events', 'event',
+/*app.controller('EventsCtrl', ['$scope', 'events', 'event',
 function($scope, events, event){
     
     $scope.event = event;
 
-}]);
+}]);*/
