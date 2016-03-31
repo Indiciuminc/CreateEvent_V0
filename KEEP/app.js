@@ -1,10 +1,11 @@
 var mongoose = require('mongoose');
-var mongodbUri = 'mongodb://ds023078.mlab.com:23078/core';
+var mongodbUri = 'mongodb://ds023098.mlab.com:23098/news';
 
 var options = {
   user: 'admin',
   pass: 'P@ssw0rd'
-}
+};
+
 mongoose.connect(mongodbUri, options);
 
 require('./models/Events');
