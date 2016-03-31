@@ -1,0 +1,37 @@
+subtitle : $scope.subtitle,
+      date : $scope.date,
+      s_Time : $scope.s_Time,
+      e_Time : $scope.e_Time,
+      regist : $scope.regist,
+      addmis : $scope.addmis,
+      event_I : $scope.event_I,
+      event_Key : $scope.event_Key,
+      street_Nu : $scope.street_Nu,
+      street_Na : $scope.street_Na,
+      city : $scope.city,
+      prosta : $scope.prosta,
+      postzip : $scope.postzip,
+      web : $scope.web,
+      faceb : $scope.faceb,
+      insta : $scope.insta,
+      tweet : $scope.tweet,
+      google : $scope.google,
+
+$scope.subtitle = '';
+    $scope.date = '';
+    $scope.s_Time = '';
+    $scope.e_Time = '';
+    $scope.regist = '';
+    $scope.addmis = '';
+    $scope.event_I = '';
+    $scope.event_Key = '';
+    $scope.street_Nu = '';
+    $scope.street_Na = '';
+    $scope.city = '';
+    $scope.prosta = '';
+    $scope.postzip = '';
+    $scope.web = '';
+    $scope.faceb = '';
+    $scope.insta = '';
+    $scope.tweet = '';
+    $scope.google = '';

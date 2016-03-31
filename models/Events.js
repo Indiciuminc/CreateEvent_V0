@@ -20,8 +20,6 @@ var EventSchema = new mongoose.Schema({
   insta: String,
   tweet: String,
   google: String,
-  upvotes: {type: Number, default: 0},
-  comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }]
 });
 
 mongoose.model('Event', EventSchema);
