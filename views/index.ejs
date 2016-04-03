@@ -7,7 +7,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
   
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-  </head>
+</head>
 <body ng-app="createEvent">
   <div class="row">
     <div class="text-center col-md-4 col-md-offset-3">
@@ -20,20 +20,30 @@
       <img src="https://storage.googleapis.com/nowmapr_v0/img/nowmapr.jpg" alt="nowmapr" height="75" width="225">
     </div>
 
+    <div
     <form ng-submit="addEvent()" style="margin-top:30px">
       <span>
-      <h3>Create a New Event</h3>
+      <h4 class="text-left">Add an Event</h4></br>
       
       <div class="text-left">
+      <div class="text-muted">
+      
       <div class="form-group">
-        <label for="Event Title">Event Title</label>
-        <input type="text" class="form-control" placeholder="Title" ng-model="title">
+        <label for="Event Title" class-"text-muted">Event Title</label>
+        <input type="text" class="form-control" placeholder="What is the name of your Event?" ng-model="title">
+      </div>
+      
+      <div class="form-group">
+        <label for="Event Date">Event Date</label>
+        <input type="date" class="form-control" ng-model="date">
+        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
       </div>
       </br>
 
       
 
       <input type="submit" id="submit" value="Submit" />
+      </div>
       </div>
     </form>
 	</script>
