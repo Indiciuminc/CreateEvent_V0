@@ -35,3 +35,21 @@ $scope.subtitle = '';
     $scope.insta = '';
     $scope.tweet = '';
     $scope.google = '';
+    
+    
+    s_Time: String,
+  e_Time: String,
+  regist: Boolean,
+  addmis: String,
+  event_I: String,
+  event_Key: String,
+  street_Nu: String,
+  street_Na: String,
+  city: String,
+  prosta: String,
+  postzip: String,
+  web: String,
+  faceb: String,
+  insta: String,
+  tweet: String,
+  google: String,

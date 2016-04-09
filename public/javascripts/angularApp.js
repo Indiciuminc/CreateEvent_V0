@@ -57,18 +57,30 @@ app.controller('MainCtrl', ['$scope', 'events',
 function($scope, events) {
 	$scope.events = events.events;
 	
-	$scope.title = '';
+	$scope.name = '';
 
 	$scope.addEvent = function() {
 		
-		if ($scope.event_T === '') {
+		if ($scope.name === '') {
 			return;
 		}
 		events.create({
-			title : $scope.title,
+			name : $scope.name,
+			date : $scope.date,
+			sT: $scope.sT,
+			eT: $scope.eT,
+			address: $scope.address,
+			info: $scope.info,
+			addmis: $scope.addmis,
       
     });
-    $scope.title = '';
+    $scope.name = '';
+    $scope.date = '';
+    $scope.sT = '';
+    $scope.eT = '';
+    $scope.address = '';
+    $scope.info = '';
+    $scope.addmis = '';
     
   };
 
