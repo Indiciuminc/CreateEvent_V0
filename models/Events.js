@@ -7,6 +7,14 @@ var EventSchema = new mongoose.Schema({
   eT: String,
   address: String,
   info: String,
+  addmis: String,
+  cost: String,
+  fee: String,
+  faceb: String,
+  insta: String,
+  tweet: String,
+  google: String,
+  web: String,
 });
 
 mongoose.model('Event', EventSchema);

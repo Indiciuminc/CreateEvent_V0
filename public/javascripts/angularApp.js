@@ -72,6 +72,13 @@ function($scope, events) {
 			address: $scope.address,
 			info: $scope.info,
 			addmis: $scope.addmis,
+			cost: $scope.cost,
+			fee: $scope.fee,
+			faceb: $scope.faceb,
+      insta : $scope.insta,
+      tweet : $scope.tweet,
+      google : $scope.google,
+      web : $scope.web,
       
     });
     $scope.name = '';
@@ -81,6 +88,13 @@ function($scope, events) {
     $scope.address = '';
     $scope.info = '';
     $scope.addmis = '';
+    $scope.cost = '';
+    $scope.fee = '';
+    $scope.faceb = '';
+    $scope.insta = '';
+    $scope.tweet = '';
+    $scope.google = '';
+    $scope.web = '';
     
   };
 
