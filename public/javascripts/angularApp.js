@@ -71,7 +71,7 @@ function($scope, events) {
 			eT: $scope.eT,
 			address: $scope.address,
 			info: $scope.info,
-			addmis: $scope.addmis,
+			addmis: $scope.admis,
 			cost: $scope.cost,
 			fee: $scope.fee,
 			faceb: $scope.faceb,
@@ -87,7 +87,7 @@ function($scope, events) {
     $scope.eT = '';
     $scope.address = '';
     $scope.info = '';
-    $scope.addmis = '';
+    $scope.admis = '';
     $scope.cost = '';
     $scope.fee = '';
     $scope.faceb = '';
