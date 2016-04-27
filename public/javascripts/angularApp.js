@@ -53,9 +53,9 @@ app.factory('events', ['$http', function($http){
 }]);
 
 
-app.controller('MainCtrl', ['$scope', 'events', 
-function($scope, events) {
+app.controller('MainCtrl', ['$scope', 'events', function($scope, events, uploader) {
 	$scope.events = events.events;
+	
 	
 	$scope.name = '';
 
@@ -71,16 +71,13 @@ function($scope, events) {
 			eT: $scope.eT,
 			address: $scope.address,
 			info: $scope.info,
-			addmis: $scope.admis,
+			admis: $scope.admis,
 			cost: $scope.cost,
 			fee: $scope.fee,
-			faceb: $scope.faceb,
-      insta : $scope.insta,
-      tweet : $scope.tweet,
-      google : $scope.google,
-      web : $scope.web,
-      
+			pic : $scope.pic,
+
     });
+    
     $scope.name = '';
     $scope.date = '';
     $scope.sT = '';
@@ -90,19 +87,28 @@ function($scope, events) {
     $scope.admis = '';
     $scope.cost = '';
     $scope.fee = '';
-    $scope.faceb = '';
-    $scope.insta = '';
-    $scope.tweet = '';
-    $scope.google = '';
-    $scope.web = '';
-    
+    $scope.pic = '';
+
+
   };
+  
+  $scope.upload = function(){
+        uploader.pick(
+            {
+                mimetype: 'image/*',
+                language: 'en',
+                services: ['COMPUTER','DROPBOX','GOOGLE_DRIVE','IMAGE_SEARCH', 'FACEBOOK', 'INSTAGRAM'],
+                openTo: 'IMAGE_SEARCH'
+                
+            },
+            function(Blob){
+                console.log(JSON.stringify(Blob));
+                $scope.pic = Blob;
+                $scope.$apply();
+            }
+            
+        );
+        
+    };
 
 }]);
-
-/*app.controller('EventsCtrl', ['$scope', 'events', 'event',
-function($scope, events, event){
-    
-    $scope.event = event;
-
-}]);*/

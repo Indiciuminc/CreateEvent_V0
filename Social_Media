@@ -1,0 +1,37 @@
+<div class="text-center">
+	    <div>
+	    <h3> Social Media for Your Event</h3>
+	    </div>
+	    </br>
+      
+      
+	    <div class="form-inline">
+        <label for="Event's Web Page" class="fa fa-globe fa-2x fa-fw"></label>
+        <input type="text" class="form-control" placeholder="Event's Web Page" ng-model="web"/>
+      </div>
+      </br>
+	    
+	    <div class="form-inline">
+	      <label for="Event's Facebook Page" class="fa fa-facebook-official fa-2x fa-fw"></label>
+        <input type="text" class="form-control" placeholder="Event's Facebook Page" ng-model="faceb"/>
+      </div>
+      </br>
+      
+      <div class="form-inline">
+        <label for="Event's Instagram Page" class="fa fa-instagram fa-2x fa-fw"></label>
+        <input type="text" class="form-control" placeholder="Event's Instagram Page" ng-model="insta"/>
+      </div>
+      </br>
+      
+      <div class="form-inline">
+        <label for="Event's Twitter Feed" class="fa fa-twitter-square fa-2x fa-fw"></label>
+        <input type="text" class="form-control" placeholder="Event's Twitter Feed" ng-model="tweet"/>
+      </div>
+      </br>
+      
+      <div class="form-inline">
+        <label for="Event's Google+ page" class="fa fa-google-plus-square fa-2x fa-fw"></label>
+        <input type="text" class="form-control" placeholder="Event's Google+ page" ng-model="google"/>
+      </div>
+      </br>
+      </div>

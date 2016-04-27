@@ -5,7 +5,10 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
   <script src="/javascripts/angularApp.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+  <script src="//api.filestackapi.com/filestack.js"></script>
   
+  
+
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
@@ -24,7 +27,7 @@
     
     <form ng-submit="addEvent()" style="margin-top:30px">
       <span>
-      <h4 class="text-left">Add an Event</h4></br>
+      <h4 class="text-center">Create an Event</h4></br>
       
       <div class="text-left">
       <div class="text-muted">
@@ -44,6 +47,33 @@
       <div class="form-group">
         <label for="Start Time">Start Time</label>
         <select placeholder="Start Time" ng-model="sT">
+        	<option value= ""> </option>
+        	
+	        <option value="12:00 AM">12:00 AM</option>
+	        <option value="12:15 AM">12:15 AM</option>
+	        <option value="12:30 AM">12:30 AM</option>
+	        <option value="12:45 AM">12:45 AM</option>
+	        
+	        <option value="1:00 AM">1:00 AM</option>
+	        <option value="1:15 AM">1:15 AM</option>
+	        <option value="1:30 AM">1:30 AM</option>
+	        <option value="1:45 AM">1:45 AM</option>
+	        
+	        <option value="2:00 AM">2:00 AM</option>
+	        <option value="2:15 AM">2:15 AM</option>
+	        <option value="2:30 AM">2:30 AM</option>
+	        <option value="2:45 AM">2:45 AM</option>
+	        
+	        <option value="3:00 AM">3:00 AM</option>
+	        <option value="3:15 AM">3:15 AM</option>
+	        <option value="3:30 AM">3:30 AM</option>
+	        <option value="3:45 AM">3:45 AM</option>
+	        
+	        <option value="4:00 AM">4:00 AM</option>
+	        <option value="4:15 AM">4:15 AM</option>
+	        <option value="4:30 AM">4:30 AM</option>
+	        <option value="4:45 AM">4:45 AM</option>
+	        
 	        <option value="5:00 AM">5:00 AM</option>
 	        <option value="5:15 AM">5:15 AM</option>
 	        <option value="5:30 AM">5:30 AM</option>
@@ -142,6 +172,33 @@
 	        
 	       <label for="End Time">End Time</label>
           <select placeholder="End Time" ng-model="eT">
+	        <option value= ""> </option>
+	        
+	        <option value="12:00 AM">12:00 AM</option>
+	        <option value="12:15 AM">12:15 AM</option>
+	        <option value="12:30 AM">12:30 AM</option>
+	        <option value="12:45 AM">12:45 AM</option>
+	        
+	        <option value="1:00 AM">1:00 AM</option>
+	        <option value="1:15 AM">1:15 AM</option>
+	        <option value="1:30 AM">1:30 AM</option>
+	        <option value="1:45 AM">1:45 AM</option>
+	        
+	        <option value="2:00 AM">2:00 AM</option>
+	        <option value="2:15 AM">2:15 AM</option>
+	        <option value="2:30 AM">2:30 AM</option>
+	        <option value="2:45 AM">2:45 AM</option>
+	        
+	        <option value="3:00 AM">3:00 AM</option>
+	        <option value="3:15 AM">3:15 AM</option>
+	        <option value="3:30 AM">3:30 AM</option>
+	        <option value="3:45 AM">3:45 AM</option>
+	        
+	        <option value="4:00 AM">4:00 AM</option>
+	        <option value="4:15 AM">4:15 AM</option>
+	        <option value="4:30 AM">4:30 AM</option>
+	        <option value="4:45 AM">4:45 AM</option>
+	        
 	        <option value="5:00 AM">5:00 AM</option>
 	        <option value="5:15 AM">5:15 AM</option>
 	        <option value="5:30 AM">5:30 AM</option>
@@ -236,8 +293,8 @@
 	        <option value="11:15 PM">11:15 PM</option>
 	        <option value="11:30 PM">11:30 PM</option>
 	        <option value="11:45 PM">11:45 PM</option>
-        </select>
-  	  </div>
+	        </select>
+	    </div>
       </br>
       
       <div class="form-group">
@@ -247,60 +304,39 @@
       </br>
         
       <div class="form-group">
+      <div class="form-inline">
         <label for="Admission">Admission</label>
-        <select placeholder="Admission" ng-model="addmis"/>
+        <select placeholder="Admission" ng-model="admis"/>
 	        <option value="Free">Free</option>
 	        <option value="Cost">Cost</option>
 	        <option value="Other">Other</option>
 	      </select>
-	      <input type="text" class="form-control" placeholder="Cost to attend the event" ng-show="addmis=='Cost'" ng-model="cost"/>
-	      <input type="text" class="form-control" placeholder="Other Admission Required" ng-show="addmis=='Other'" ng-model="fee"/>
+	      <input type="text" class="form-control" placeholder="Cost to attend the event" ng-show="admis=='Cost'" ng-model="cost"/>
+	      <input type="text" class="form-control" placeholder="Other Admission Required" ng-show="admis=='Other'" ng-model="fee"/>
+	    </div>
+	    </div>
+
+			<div class="form-inline">
+			<label for="Cover Photo">Choose a Cover Photo for Your Event Page:   </label>
+	    <input class="btn btn-info" type="filepicker" data-fp-apikey="AweAnVFs8RaWaeQNHS6jgz" ng-click="upload()" ng-model="pic" />
+	    </br>
+	    </br>
+	    <div>
+	    <a href="{{pic}}" class="thumbnail" ng-if="pic" target="_blank" align="center"><img ng-src="{{pic}}"></a>
+	    </div>
 	    </div>
 	    </br>
-      
-      <div class="form-group">
+			
+			<div class="form-group">
         <label for="Event Information">Event Information</label>
         <textarea class="form-control" rows="5" placeholder="Tell us about your event" ng-model="info"/></textarea>
       </div>
       </br>
       
       <div class="text-center">
-	    
-	    <div class="form-inline">
-        <label for="Event's Web Page" class="fa fa-globe fa-2x fa-fw"></label>
-        <input type="text" class="form-control" placeholder="Event's Web Page" ng-model="web"/>
-      </div>
-      </br>
-	    
-	    <div class="form-inline">
-	      <label for="Event's Facebook Page" class="fa fa-facebook-official fa-2x fa-fw"></label>
-        <input type="text" class="form-control" placeholder="Event's Facebook Page" ng-model="faceb"/>
-      </div>
-      </br>
-      
-      <div class="form-inline">
-      <div class="text-center">
-        <label for="Event's Instagram Page" class="fa fa-instagram fa-2x fa-fw"></label>
-        <input type="text" class="form-control" placeholder="Event's Instagram Page" ng-model="insta"/>
-      </div>
-      </div>
-      </br>
-      
-      <div class="form-inline">
-        <label for="Event's Twitter Feed" class="fa fa-twitter-square fa-2x fa-fw"></label>
-        <input type="text" class="form-control" placeholder="Event's Twitter Feed" ng-model="tweet"/>
-      </div>
-      </br>
-      
-      <div class="form-inline">
-        <label for="Event's Google+ page" class="fa fa-google-plus-square fa-2x fa-fw"></label>
-        <input type="text" class="form-control" placeholder="Event's Google+ page" ng-model="google"/>
-      </div>
-      </br>
-      
+      <input type="submit" class="btn btn-info" id="submit" value="Submit" />
       </div>
       
-      <input type="submit" id="submit" value="Submit" />
       </div>
       </div>
     </form>
