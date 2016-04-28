@@ -34,19 +34,19 @@
       
       <div class="form-group">
         <label for="Event Name" class-"text-muted">Event Name</label>
-        <input type="text" class="form-control" placeholder="What is the name of your Event?" ng-model="name"/>
+        <input type="text" class="form-control" placeholder="What is the name of your Event?" ng-model="name" required/>
       </div>
       
       <div class="form-group has-feedback">
         <label for="Event Date">Event Date</label>
-        <input type="date" class="form-control" ng-model="date"/>
+        <input type="date" class="form-control" ng-model="date" required/>
         <i class="form-control-feedback glyphicon glyphicon-calendar"></i>
       </div>
       </br>
       
       <div class="form-group">
         <label for="Start Time">Start Time</label>
-        <select placeholder="Start Time" ng-model="sT">
+        <select placeholder="Start Time" ng-model="sT" required>
         	<option value= ""> </option>
         	
 	        <option value="12:00 AM">12:00 AM</option>
@@ -171,7 +171,7 @@
 	        </select>
 	        
 	       <label for="End Time">End Time</label>
-          <select placeholder="End Time" ng-model="eT">
+          <select placeholder="End Time" ng-model="eT" required>
 	        <option value= ""> </option>
 	        
 	        <option value="12:00 AM">12:00 AM</option>
@@ -299,14 +299,16 @@
       
       <div class="form-group">
         <label for="Address">Address</label>
-        <input type="text" class="form-control" placeholder="Address" ng-model="address"/>
+        <input type="text" class="form-control" placeholder="Address" ng-model="address" required/>
       </div>
       </br>
         
       <div class="form-group">
       <div class="form-inline">
         <label for="Admission">Admission</label>
-        <select placeholder="Admission" ng-model="admis"/>
+        <select placeholder="Admission" ng-model="admis" required/>
+	        <option value=""></option>
+	        
 	        <option value="Free">Free</option>
 	        <option value="Cost">Cost</option>
 	        <option value="Other">Other</option>
@@ -318,7 +320,7 @@
 
 			<div class="form-inline">
 			<label for="Cover Photo">Choose a Cover Photo for Your Event Page:   </label>
-	    <input class="btn btn-info" type="filepicker" data-fp-apikey="AweAnVFs8RaWaeQNHS6jgz" ng-click="upload()" ng-model="pic" />
+	    <input class="btn btn-info" type="filepicker" data-fp-apikey="AweAnVFs8RaWaeQNHS6jgz" ng-click="upload()" data-fp-button-text="Choose Image" ng-model="pic" />
 	    </br>
 	    </br>
 	    <div>
@@ -329,12 +331,12 @@
 			
 			<div class="form-group">
         <label for="Event Information">Event Information</label>
-        <textarea class="form-control" rows="5" placeholder="Tell us about your event" ng-model="info"/></textarea>
+        <textarea class="form-control" rows="5" placeholder="Tell us about your event" ng-model="info" required/></textarea>
       </div>
       </br>
       
       <div class="text-center">
-      <input type="submit" class="btn btn-info" id="submit" value="Submit" />
+      <input type="submit" class="btn btn-info" id="submit" value="Create Your Event" />
       </div>
       
       </div>

@@ -97,7 +97,7 @@ app.controller('MainCtrl', ['$scope', 'events', function($scope, events, uploade
             {
                 mimetype: 'image/*',
                 language: 'en',
-                services: ['COMPUTER','DROPBOX','GOOGLE_DRIVE','IMAGE_SEARCH', 'FACEBOOK', 'INSTAGRAM'],
+                services: ['COMPUTER','DROPBOX','GOOGLE_DRIVE', 'FACEBOOK', 'INSTAGRAM'],
                 openTo: 'IMAGE_SEARCH'
                 
             },
