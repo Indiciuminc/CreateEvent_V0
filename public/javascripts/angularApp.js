@@ -1,6 +1,6 @@
 // JavaScript File
 
-var app = angular.module('createEvent', ['ui.router']);
+var app = angular.module('createEvent', ['ui.router', 'vsGoogleAutocomplete']);
 
 app.config([
 '$stateProvider',
