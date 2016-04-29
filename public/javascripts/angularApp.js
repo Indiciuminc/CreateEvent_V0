@@ -56,39 +56,59 @@ app.factory('events', ['$http', function($http){
 app.controller('MainCtrl', ['$scope', 'events', function($scope, events, uploader) {
 	$scope.events = events.events;
 	
+	$scope.ename = '';
 	
-	$scope.name = '';
-
 	$scope.addEvent = function() {
 		
-		if ($scope.name === '') {
+		if ($scope.ename === '') {
 			return;
 		}
 		events.create({
-			name : $scope.name,
+			ename : $scope.ename,
 			date : $scope.date,
-			sT: $scope.sT,
-			eT: $scope.eT,
-			address: $scope.address,
+			sTime: $scope.sTime,
+			eTime: $scope.eTime,
 			info: $scope.info,
 			admis: $scope.admis,
 			cost: $scope.cost,
 			fee: $scope.fee,
 			pic : $scope.pic,
-
+			address : $scope.address,
+			lat : $scope.lat,
+			long : $scope.long,
+			
     });
     
-    $scope.name = '';
+    $scope.ename = '';
     $scope.date = '';
-    $scope.sT = '';
-    $scope.eT = '';
-    $scope.address = '';
+    $scope.sTime = '';
+    $scope.eTime = '';
     $scope.info = '';
     $scope.admis = '';
     $scope.cost = '';
     $scope.fee = '';
     $scope.pic = '';
-
+    $scope.address = {
+        name: '',
+        place: '',
+        components: {
+          placeId: '',
+          streetNumber: '', 
+          street: '',
+          city: '',
+          state: '',
+          countryCode: '',
+          country: '',
+          postCode: '',
+          district: '',
+          location: {
+            lat: '',
+            long: ''
+        }
+      }
+    };
+    $scope.lat = '((address.components.location.lat}}';
+    $scope.long = '{{address.components.location.long}}';
 
   };
   

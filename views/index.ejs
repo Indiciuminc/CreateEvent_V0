@@ -40,7 +40,7 @@
       
       <div class="form-group">
         <label for="Event Name" class-"text-muted">Event Name</label>
-        <input type="text" class="form-control" placeholder="What is the name of your Event?" ng-model="name" required/>
+        <input type="text" class="form-control" placeholder="What is the name of your Event?" ng-model="ename" required/>
       </div>
       
       <div class="form-group has-feedback">
@@ -52,7 +52,7 @@
       
       <div class="form-group">
         <label for="Start Time">Start Time</label>
-        <select placeholder="Start Time" ng-model="sT" required>
+        <select placeholder="Start Time" ng-model="sTime" required>
         	<option value= ""> </option>
         	
 	        <option value="12:00 AM">12:00 AM</option>
@@ -177,7 +177,7 @@
 	        </select>
 	        
 	       <label for="End Time">End Time</label>
-          <select placeholder="End Time" ng-model="eT" required>
+          <select placeholder="End Time" ng-model="eTime" required>
 	        <option value= ""> </option>
 	        
 	        <option value="12:00 AM">12:00 AM</option>
@@ -305,7 +305,7 @@
       
       <div class="form-group">
         <label for="Address">Address</label>
-        <input vs-google-autocomplete type="text" class="form-control" placeholder="Address" ng-model="address" required/>
+        <input vs-google-autocomplete vs-latitude="address.components.location.lat" vs-longitude="address.components.location.long" type="text" class="form-control" placeholder="Address" ng-model="address.name" required/>
       </div>
       </br>
         
