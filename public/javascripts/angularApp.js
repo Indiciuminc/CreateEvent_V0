@@ -73,9 +73,8 @@ app.controller('MainCtrl', ['$scope', 'events', function($scope, events, uploade
 			cost: $scope.cost,
 			fee: $scope.fee,
 			pic : $scope.pic,
+			cat: $scope.cat,
 			address : $scope.address,
-			lat : $scope.lat,
-			long : $scope.long,
 			
     });
     
@@ -88,6 +87,7 @@ app.controller('MainCtrl', ['$scope', 'events', function($scope, events, uploade
     $scope.cost = '';
     $scope.fee = '';
     $scope.pic = '';
+    $scope.cat = '';
     $scope.address = {
         name: '',
         place: '',
@@ -107,8 +107,6 @@ app.controller('MainCtrl', ['$scope', 'events', function($scope, events, uploade
         }
       }
     };
-    $scope.lat = '((address.components.location.lat}}';
-    $scope.long = '{{address.components.location.long}}';
 
   };
   
