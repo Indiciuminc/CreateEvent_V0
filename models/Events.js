@@ -44,9 +44,15 @@ var EventSchema = new mongoose.Schema({
     
   },
   
-  cost: String,
+  cost: {
+    type: String,
   
-  fee: String,
+  },
+  
+  fee: {
+    type: String,
+  
+  },
   
   cat: {
     type: String,
@@ -58,6 +64,31 @@ var EventSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.Mixed
     
   },
+  
+  web: {
+    type: String,
+  
+  },
+  
+  face: {
+    type: String,
+  
+  },
+  
+  insta: {
+    type: String,
+  
+  },
+  
+  tweet: {
+    type: String,
+  
+  },
+  
+  google: {
+    type: String,
+  
+  }
   
 });
 

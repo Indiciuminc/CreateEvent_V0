@@ -15,12 +15,13 @@
   
   
 
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body ng-app="createEvent">
   <div class="row">
-    <div class="text-center col-md-4 col-md-offset-3">
+    <div class="text-center col-xs-6 col-xs-offset-3">
       <ui-view></ui-view>
     </div>
   </div>
@@ -32,25 +33,27 @@
 
     
     <form ng-submit="addEvent()" style="margin-top:30px">
-      <span>
+      <div class="row">
       <h4 class="text-center">Create an Event</h4></br>
+      </div>
       
-      <div class="text-left">
-      <div class="text-muted">
+      <div class="text-left text-muted">
       
-      <div class="form-group">
+      
+      <div class="form-group row">
         <label for="Event Name" class-"text-muted">Event Name</label>
         <input type="text" class="form-control" placeholder="What is the name of your Event?" ng-model="ename" required/>
       </div>
       
-      <div class="form-group has-feedback">
+      <div class="form-group has-feedback row">
         <label for="Event Date">Event Date</label>
-        <input type="date" class="form-control" ng-model="date" required/>
+        <input type="date" class="form-control" ng-model="date" placeholder="Date" required/>
         <i class="form-control-feedback glyphicon glyphicon-calendar"></i>
       </div>
-      </br>
+
       
-      <div class="form-group">
+      <div class="row">
+      <div class="form-group col-xs-3 col-xs-offset-2">
         <label for="Start Time">Start Time</label>
         <select placeholder="Start Time" ng-model="sTime" required>
         	<option value= ""> </option>
@@ -175,8 +178,10 @@
 	        <option value="11:30 PM">11:30 PM</option>
 	        <option value="11:45 PM">11:45 PM</option>
 	        </select>
+	        </div>
 	        
-	       <label for="End Time">End Time</label>
+	        <div class="col-xs-3 col-xs-offset-2">
+	       	<label for="End Time">End Time</label>
           <select placeholder="End Time" ng-model="eTime" required>
 	        <option value= ""> </option>
 	        
@@ -300,17 +305,17 @@
 	        <option value="11:30 PM">11:30 PM</option>
 	        <option value="11:45 PM">11:45 PM</option>
 	        </select>
+	        </div>
 	    </div>
-      </br>
+
       
-      <div class="form-group">
+      <div class="form-group row">
         <label for="Address">Address</label>
         <input vs-google-autocomplete vs-latitude="address.components.location.lat" vs-longitude="address.components.location.long" type="text" class="form-control" placeholder="Address" ng-model="address.name" required/>
       </div>
-      </br>
         
-      <div class="form-group">
-      <div class="form-inline">
+   
+      <div class="form-group form-inline row">
         <label for="Admission">Admission</label>
         <select placeholder="Admission" ng-model="admis" required/>
 	        <option value=""></option>
@@ -322,9 +327,8 @@
 	      <input type="text" class="form-control" placeholder="Cost to attend the event" ng-show="admis=='Cost'" ng-model="cost"/>
 	      <input type="text" class="form-control" placeholder="Other Admission Required" ng-show="admis=='Other'" ng-model="fee"/>
 	    </div>
-	    </div>
 	    
-	    <div class="form-group">
+	    <div class="form-group row">
 	    	<label for="Category">Choose the Category of your Event:  </label>
 	    	<select placeholder="Category" ng-model="cat" required/>
 	    	<option value=""></option>
@@ -334,12 +338,12 @@
 	    	<option value="Arts">Arts</option>
 	    	<option value="Sports">Sports</option>
 	    	<option value="Nightlife">Nightlife</option>
-	    	<option value="Bargin Hunting">Bargin Hunting</option>
+	    	<option value="Bargain Hunting">Bargain Hunting</option>
 	    	</select>
 	    </div>
 	    	
 
-			<div class="form-inline">
+			<div class="form-inline row">
 			<label for="Cover Photo">Choose a Cover Photo for Your Event Page:   </label>
 	    <input class="btn btn-info" type="filepicker" data-fp-apikey="AweAnVFs8RaWaeQNHS6jgz" ng-click="upload()" data-fp-button-text="Choose Image" ng-model="pic" />
 	    </br>
@@ -348,19 +352,60 @@
 	    <a href="{{pic}}" class="thumbnail" ng-if="pic" target="_blank" align="center"><img ng-src="{{pic}}"></a>
 	    </div>
 	    </div>
-	    </br>
-			
-			<div class="form-group">
+	    
+			<div class="form-group row">
         <label for="Event Information">Event Information</label>
         <textarea class="form-control" rows="5" placeholder="Tell us about your event" ng-model="info" required/></textarea>
       </div>
+      
+      <div class="form-inline text-center">
+      	<div class="fa fa-globe fa-2x fa-fw" aria-hidden="true" ng-click="webfun()"></div>
+      	<div class="fa fa-facebook-official fa-2x fa-fw" aria-hidden="true" ng-click="facefun()"></div>
+      	<div class="fa fa-instagram fa-2x fa-fw" aria-hidden="true" ng-click="instafun()"></div>
+      	<div class="fa fa-twitter-square fa-2x fa-fw" aria-hidden="true" ng-click="tweetfun()"></div>
+      	<div class="fa fa-google-plus-square fa-2x fa-fw" aria-hidden="true" ng-click="goofun()"></div>
+      </div>
       </br>
       
-      <div class="text-center">
+      <div class="form-inline text-center" ng-show="showweb">
+        <label for="Event's Web Page" class="fa fa-globe fa-2x fa-fw" aria-hidden="true"></label>
+        <input type="text" class="form-control" placeholder="Event's Web Page" ng-model="web"/>
+      </div>
+      
+      <div class="form-inline text-center" ng-show="showface">
+        <label for="Event's Web Page" class="fa fa-facebook-official fa-2x fa-fw" aria-hidden="true"></label>
+        <input type="text" class="form-control" placeholder="Event's Web Page" ng-model="face"/>
+      </div>
+      
+      <div class="form-inline text-center" ng-show="showinsta">
+        <label for="Event's Web Page" class="fa fa-instagram fa-2x fa-fw" aria-hidden="true"></label>
+        <input type="text" class="form-control" placeholder="Event's Web Page" ng-model="insta"/>
+      </div>
+      
+      <div class="form-inline text-center" ng-show="showtweet">
+        <label for="Event's Web Page" class="fa fa-twitter-square fa-2x fa-fw" aria-hidden="true"></label>
+        <input type="text" class="form-control" placeholder="Event's Web Page" ng-model="tweet"/>
+      </div>
+      
+      <div class="form-inline text-center" ng-show="showgoo">
+        <label for="Event's Web Page" class="fa fa-google-plus-square fa-2x fa-fw" aria-hidden="true"></label>
+        <input type="text" class="form-control" placeholder="Event's Web Page" ng-model="google"/>
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      </br>
+      	
+      
+      <div class="text-center row">
       <input type="submit" class="btn btn-info" id="submit" value="Create Your Event" />
       </div>
       
-      </div>
+
       </div>
     </form>
     

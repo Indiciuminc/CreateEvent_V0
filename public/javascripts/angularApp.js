@@ -73,8 +73,13 @@ app.controller('MainCtrl', ['$scope', 'events', function($scope, events, uploade
 			cost: $scope.cost,
 			fee: $scope.fee,
 			pic : $scope.pic,
-			cat: $scope.cat,
+			cat : $scope.cat,
 			address : $scope.address,
+			web : $scope.web,
+			face : $scope.face,
+			insta : $scope.insta,
+			tweet : $scope.tweet,
+			google : $scope.google
 			
     });
     
@@ -88,6 +93,11 @@ app.controller('MainCtrl', ['$scope', 'events', function($scope, events, uploade
     $scope.fee = '';
     $scope.pic = '';
     $scope.cat = '';
+    $scope.web = '';
+    $scope.face = '';
+    $scope.insta = '';
+    $scope.tweet = '';
+    $scope.google = '';
     $scope.address = {
         name: '',
         place: '',
@@ -109,6 +119,31 @@ app.controller('MainCtrl', ['$scope', 'events', function($scope, events, uploade
     };
 
   };
+  
+  $scope.showweb = false;
+  $scope.webfun = function() {
+    $scope.showweb = !$scope.showweb;
+  }
+  
+  $scope.showface = false;
+  $scope.facefun = function() {
+    $scope.showface = !$scope.showface;
+  }
+  
+  $scope.showinsta = false;
+  $scope.instafun = function() {
+    $scope.showinsta = !$scope.showinsta;
+  }
+  
+  $scope.showtweet = false;
+  $scope.tweetfun = function() {
+    $scope.showtweet = !$scope.showtweet;
+  }
+  
+  $scope.showgoo = false;
+  $scope.goofun = function() {
+    $scope.showgoo = !$scope.showgoo;
+  }
   
   $scope.upload = function(){
         uploader.pick(
