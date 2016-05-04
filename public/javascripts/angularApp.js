@@ -1,6 +1,6 @@
 // JavaScript File
 
-var app = angular.module('createEvent', ['ui.router']);
+var app = angular.module('createEvent', ['ui.router', 'vsGoogleAutocomplete']);
 
 app.config([
 '$stateProvider',
@@ -53,30 +53,118 @@ app.factory('events', ['$http', function($http){
 }]);
 
 
-app.controller('MainCtrl', ['$scope', 'events', 
-function($scope, events) {
+app.controller('MainCtrl', ['$scope', 'events', function($scope, events, uploader) {
 	$scope.events = events.events;
 	
-	$scope.title = '';
-
+	$scope.ename = '';
+	
 	$scope.addEvent = function() {
 		
-		if ($scope.event_T === '') {
+		if ($scope.ename === '') {
 			return;
 		}
 		events.create({
-			title : $scope.title,
-      
+			ename : $scope.ename,
+			date : $scope.date,
+			sTime: $scope.sTime,
+			eTime: $scope.eTime,
+			info: $scope.info,
+			admis: $scope.admis,
+			cost: $scope.cost,
+			fee: $scope.fee,
+			pic : $scope.pic,
+			cat : $scope.cat,
+			address : $scope.address,
+			web : $scope.web,
+			face : $scope.face,
+			insta : $scope.insta,
+			tweet : $scope.tweet,
+			google : $scope.google
+			
     });
-    $scope.title = '';
     
+    $scope.ename = '';
+    $scope.date = '';
+    $scope.sTime = '';
+    $scope.eTime = '';
+    $scope.info = '';
+    $scope.admis = '';
+    $scope.cost = '';
+    $scope.fee = '';
+    $scope.pic = '';
+    $scope.cat = '';
+    $scope.web = '';
+    $scope.face = '';
+    $scope.insta = '';
+    $scope.tweet = '';
+    $scope.google = '';
+    $scope.address = {
+        name: '',
+        place: '',
+        components: {
+          placeId: '',
+          streetNumber: '', 
+          street: '',
+          city: '',
+          state: '',
+          countryCode: '',
+          country: '',
+          postCode: '',
+          district: '',
+          location: {
+            lat: '',
+            long: ''
+        }
+      }
+    };
+
   };
+  
+  $scope.showweb = false;
+  $scope.webfun = function() {
+    $scope.showweb = !$scope.showweb;
+  }
+  
+  $scope.showface = false;
+  $scope.facefun = function() {
+    $scope.showface = !$scope.showface;
+  }
+  
+  $scope.showinsta = false;
+  $scope.instafun = function() {
+    $scope.showinsta = !$scope.showinsta;
+  }
+  
+  $scope.showtweet = false;
+  $scope.tweetfun = function() {
+    $scope.showtweet = !$scope.showtweet;
+  }
+  
+  $scope.showgoo = false;
+  $scope.goofun = function() {
+    $scope.showgoo = !$scope.showgoo;
+  }
+  
+  $scope.upload = function(){
+        uploader.pick(
+            {
+                services: ['COMPUTER','DROPBOX','GOOGLE_DRIVE', 'FACEBOOK', 'INSTAGRAM', 'CONVERT'],
+                mimetype: 'image/*',
+                language: 'en',
+                cropDim: [740, 416],
+                cropRatio: [1/1],
+                cropForce: true,
+                openTo: 'IMAGE_SEARCH'
+                
+            },
+            function(Blob){
+                console.log(JSON.stringify(Blob));
+                $scope.pic = Blob;
+                $scope.$apply();
+            }
+            
+        );
+        
+    };
 
 }]);
-
-/*app.controller('EventsCtrl', ['$scope', 'events', 'event',
-function($scope, events, event){
-    
-    $scope.event = event;
-
-}]);*/

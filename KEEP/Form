@@ -311,3 +311,14 @@
         <input type="text" class="form-control" placeholder="Google+ Page" ng-model="google">
       </div>
       </br>
+      
+      
+      <div class="form-group">
+        <label for="Addmission">Addmission</label>
+        <input type="radio" class="form-control" name="Free" value="Free" ng-model="addmis">Free</br>
+        <input type="radio" class="form-control" name="Cost" value="Cost" ng-model="addmis">Cost
+        <input type="text" class="form-control" name="Cost" value="Cost" ng-model="addmis"></br>
+        <input type="radio" class="form-control" name="Other" value="Other" ng-model="addmis">Other
+        <input type="text" class="form-control" name="Other" value="Other" ng-model="addmis"></br>
+      </div>
+      </br>

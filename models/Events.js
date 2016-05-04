@@ -1,25 +1,95 @@
 var mongoose = require('mongoose');
 
+
 var EventSchema = new mongoose.Schema({
-  title: String,
-  subtitle: String,
-  date: { type: Date, default: Date.now },
-  s_Time: String,
-  e_Time: String,
-  regist: Boolean,
-  addmis: String,
-  event_I: String,
-  event_Key: String,
-  street_Nu: String,
-  street_Na: String,
-  city: String,
-  prosta: String,
-  postzip: String,
-  web: String,
-  faceb: String,
-  insta: String,
-  tweet: String,
-  google: String,
+  
+  ename: {
+    type: String, 
+    required: true
+    
+  },
+  
+  date: {
+    type: Date, 
+    required: true
+    
+  },
+  
+  sTime: {
+    type: String, 
+    required: true
+    
+  },
+  
+  eTime: {
+    type: String, 
+    required: true
+    
+  },
+  
+  address: {
+    type: mongoose.Schema.Types.Mixed
+    
+  },
+  
+  info: {
+    type: String, 
+    required: true
+    
+  },
+  
+  admis: {
+    type: String, 
+    required: true
+    
+  },
+  
+  cost: {
+    type: String,
+  
+  },
+  
+  fee: {
+    type: String,
+  
+  },
+  
+  cat: {
+    type: String,
+    required: true
+    
+  },
+  
+  pic: {
+    type: mongoose.Schema.Types.Mixed
+    
+  },
+  
+  web: {
+    type: String,
+  
+  },
+  
+  face: {
+    type: String,
+  
+  },
+  
+  insta: {
+    type: String,
+  
+  },
+  
+  tweet: {
+    type: String,
+  
+  },
+  
+  google: {
+    type: String,
+  
+  }
+  
 });
 
 mongoose.model('Event', EventSchema);

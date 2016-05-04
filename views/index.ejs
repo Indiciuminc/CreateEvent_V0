@@ -5,12 +5,23 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
   <script src="/javascripts/angularApp.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+  <script src="//api.filestackapi.com/filestack.js"></script>
+
+ 	<!-- Google Maps JavaScript API -->
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+    
+  <!-- vsGoogleAutocomplete -->
+  <script src="/javascripts/vs-google-autocomplete.js"></script>
   
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body ng-app="createEvent">
   <div class="row">
-    <div class="text-center col-md-4 col-md-offset-3">
+    <div class="text-center col-xs-6 col-xs-offset-3">
       <ui-view></ui-view>
     </div>
   </div>
@@ -20,32 +31,394 @@
       <img src="https://storage.googleapis.com/nowmapr_v0/img/nowmapr.jpg" alt="nowmapr" height="75" width="225">
     </div>
 
-    <div
+    
     <form ng-submit="addEvent()" style="margin-top:30px">
-      <span>
-      <h4 class="text-left">Add an Event</h4></br>
-      
-      <div class="text-left">
-      <div class="text-muted">
-      
-      <div class="form-group">
-        <label for="Event Title" class-"text-muted">Event Title</label>
-        <input type="text" class="form-control" placeholder="What is the name of your Event?" ng-model="title">
+      <div class="row">
+      <h4 class="text-center">Create an Event</h4></br>
       </div>
       
-      <div class="form-group">
+      <div class="text-left text-muted">
+      
+      
+      <div class="form-group row">
+        <label for="Event Name" class-"text-muted">Event Name</label>
+        <input type="text" class="form-control" placeholder="What is the name of your Event?" ng-model="ename" required/>
+      </div>
+      
+      <div class="form-group has-feedback row">
         <label for="Event Date">Event Date</label>
-        <input type="date" class="form-control" ng-model="date">
-        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+        <input type="date" class="form-control" ng-model="date" placeholder="Date" required/>
+        <i class="form-control-feedback glyphicon glyphicon-calendar"></i>
+      </div>
+
+      
+      <div class="row">
+      <div class="form-group col-xs-3 col-xs-offset-2">
+        <label for="Start Time">Start Time</label>
+        <select placeholder="Start Time" ng-model="sTime" required>
+        	<option value= ""> </option>
+        	
+	        <option value="12:00 AM">12:00 AM</option>
+	        <option value="12:15 AM">12:15 AM</option>
+	        <option value="12:30 AM">12:30 AM</option>
+	        <option value="12:45 AM">12:45 AM</option>
+	        
+	        <option value="1:00 AM">1:00 AM</option>
+	        <option value="1:15 AM">1:15 AM</option>
+	        <option value="1:30 AM">1:30 AM</option>
+	        <option value="1:45 AM">1:45 AM</option>
+	        
+	        <option value="2:00 AM">2:00 AM</option>
+	        <option value="2:15 AM">2:15 AM</option>
+	        <option value="2:30 AM">2:30 AM</option>
+	        <option value="2:45 AM">2:45 AM</option>
+	        
+	        <option value="3:00 AM">3:00 AM</option>
+	        <option value="3:15 AM">3:15 AM</option>
+	        <option value="3:30 AM">3:30 AM</option>
+	        <option value="3:45 AM">3:45 AM</option>
+	        
+	        <option value="4:00 AM">4:00 AM</option>
+	        <option value="4:15 AM">4:15 AM</option>
+	        <option value="4:30 AM">4:30 AM</option>
+	        <option value="4:45 AM">4:45 AM</option>
+	        
+	        <option value="5:00 AM">5:00 AM</option>
+	        <option value="5:15 AM">5:15 AM</option>
+	        <option value="5:30 AM">5:30 AM</option>
+	        <option value="5:45 AM">5:45 AM</option>
+ 
+	        <option value="6:00 AM">6:00 AM</option>
+	        <option value="6:15 AM">6:15 AM</option>
+	        <option value="6:30 AM">6:30 AM</option>
+	        <option value="6:45 AM">6:45 AM</option>
+ 
+	        <option value="7:00 AM">7:00 AM</option>
+	        <option value="7:15 AM">7:15 AM</option>
+	        <option value="7:30 AM">7:30 AM</option>
+	        <option value="7:45 AM">7:45 AM</option>
+ 
+	        <option value="8:00 AM">8:00 AM</option>
+	        <option value="8:15 AM">8:15 AM</option>
+	        <option value="8:30 AM">8:30 AM</option>
+	        <option value="8:45 AM">8:45 AM</option>
+ 
+	        <option value="9:00 AM">9:00 AM</option>
+	        <option value="9:15 AM">9:15 AM</option>
+	        <option value="9:30 AM">9:30 AM</option>
+	        <option value="9:45 AM">9:45 AM</option>
+ 
+	        <option value="10:00 AM">10:00 AM</option>
+	        <option value="10:15 AM">10:15 AM</option>
+	        <option value="10:30 AM">10:30 AM</option>
+	        <option value="10:45 AM">10:45 AM</option>
+ 
+	        <option value="11:00 AM">11:00 AM</option>
+	        <option value="11:15 AM">11:15 AM</option>
+	        <option value="11:30 AM">11:30 AM</option>
+	        <option value="11:45 AM">11:45 AM</option>
+ 
+	        <option value="12:00 PM">12:00 PM</option>
+	        <option value="12:15 PM">12:15 PM</option>
+	        <option value="12:30 PM">12:30 PM</option>
+	        <option value="12:45 PM">12:45 PM</option>
+ 
+	        <option value="1:00 PM">1:00 PM</option>
+	        <option value="1:15 PM">1:15 PM</option>
+	        <option value="1:30 PM">1:30 PM</option>
+	        <option value="1:45 PM">1:45 PM</option>
+ 
+	        <option value="2:00 PM">2:00 PM</option>
+	        <option value="2:15 PM">2:15 PM</option>
+	        <option value="2:30 PM">2:30 PM</option>
+	        <option value="2:45 PM">2:45 PM</option>
+ 
+	        <option value="3:00 PM">3:00 PM</option>
+	        <option value="3:15 PM">3:15 PM</option>
+	        <option value="3:30 PM">3:30 PM</option>
+	        <option value="3:45 PM">3:45 PM</option>
+ 
+	        <option value="4:00 PM">4:00 PM</option>
+	        <option value="4:15 PM">4:15 PM</option>
+	        <option value="4:30 PM">4:30 PM</option>
+	        <option value="4:45 PM">4:45 PM</option>
+ 
+	        <option value="5:00 PM">5:00 PM</option>
+	        <option value="5:15 PM">5:15 PM</option>
+	        <option value="5:30 PM">5:30 PM</option>
+	        <option value="5:45 PM">5:45 PM</option>
+ 
+	        <option value="6:00 PM">6:00 PM</option>
+	        <option value="6:15 PM">6:15 PM</option>
+	        <option value="6:30 PM">6:30 PM</option>
+	        <option value="6:45 PM">6:45 PM</option>
+ 
+	        <option value="7:00 PM">7:00 PM</option>
+	        <option value="7:15 PM">7:15 PM</option>
+	        <option value="7:30 PM">7:30 PM</option>
+	        <option value="7:45 PM">7:45 PM</option>
+ 
+	        <option value="8:00 PM">8:00 PM</option>
+	        <option value="8:15 PM">8:15 PM</option>
+	        <option value="8:30 PM">8:30 PM</option>
+	        <option value="8:45 PM">8:45 PM</option>
+ 
+	        <option value="9:00 PM">9:00 PM</option>
+	        <option value="9:15 PM">9:15 PM</option>
+	        <option value="9:30 PM">9:30 PM</option>
+	        <option value="9:45 PM">9:45 PM</option>
+ 
+	        <option value="10:00 PM">10:00 PM</option>
+	        <option value="10:15 PM">10:15 PM</option>
+	        <option value="10:30 PM">10:30 PM</option>
+	        <option value="10:45 PM">10:45 PM</option>
+ 
+	        <option value="11:00 PM">11:00 PM</option>
+	        <option value="11:15 PM">11:15 PM</option>
+	        <option value="11:30 PM">11:30 PM</option>
+	        <option value="11:45 PM">11:45 PM</option>
+	        </select>
+	        </div>
+	        
+	        <div class="col-xs-3 col-xs-offset-2">
+	       	<label for="End Time">End Time</label>
+          <select placeholder="End Time" ng-model="eTime" required>
+	        <option value= ""> </option>
+	        
+	        <option value="12:00 AM">12:00 AM</option>
+	        <option value="12:15 AM">12:15 AM</option>
+	        <option value="12:30 AM">12:30 AM</option>
+	        <option value="12:45 AM">12:45 AM</option>
+	        
+	        <option value="1:00 AM">1:00 AM</option>
+	        <option value="1:15 AM">1:15 AM</option>
+	        <option value="1:30 AM">1:30 AM</option>
+	        <option value="1:45 AM">1:45 AM</option>
+	        
+	        <option value="2:00 AM">2:00 AM</option>
+	        <option value="2:15 AM">2:15 AM</option>
+	        <option value="2:30 AM">2:30 AM</option>
+	        <option value="2:45 AM">2:45 AM</option>
+	        
+	        <option value="3:00 AM">3:00 AM</option>
+	        <option value="3:15 AM">3:15 AM</option>
+	        <option value="3:30 AM">3:30 AM</option>
+	        <option value="3:45 AM">3:45 AM</option>
+	        
+	        <option value="4:00 AM">4:00 AM</option>
+	        <option value="4:15 AM">4:15 AM</option>
+	        <option value="4:30 AM">4:30 AM</option>
+	        <option value="4:45 AM">4:45 AM</option>
+	        
+	        <option value="5:00 AM">5:00 AM</option>
+	        <option value="5:15 AM">5:15 AM</option>
+	        <option value="5:30 AM">5:30 AM</option>
+	        <option value="5:45 AM">5:45 AM</option>
+ 
+	        <option value="6:00 AM">6:00 AM</option>
+	        <option value="6:15 AM">6:15 AM</option>
+	        <option value="6:30 AM">6:30 AM</option>
+	        <option value="6:45 AM">6:45 AM</option>
+ 
+	        <option value="7:00 AM">7:00 AM</option>
+	        <option value="7:15 AM">7:15 AM</option>
+	        <option value="7:30 AM">7:30 AM</option>
+	        <option value="7:45 AM">7:45 AM</option>
+ 
+	        <option value="8:00 AM">8:00 AM</option>
+	        <option value="8:15 AM">8:15 AM</option>
+	        <option value="8:30 AM">8:30 AM</option>
+	        <option value="8:45 AM">8:45 AM</option>
+ 
+	        <option value="9:00 AM">9:00 AM</option>
+	        <option value="9:15 AM">9:15 AM</option>
+	        <option value="9:30 AM">9:30 AM</option>
+	        <option value="9:45 AM">9:45 AM</option>
+ 
+	        <option value="10:00 AM">10:00 AM</option>
+	        <option value="10:15 AM">10:15 AM</option>
+	        <option value="10:30 AM">10:30 AM</option>
+	        <option value="10:45 AM">10:45 AM</option>
+ 
+	        <option value="11:00 AM">11:00 AM</option>
+	        <option value="11:15 AM">11:15 AM</option>
+	        <option value="11:30 AM">11:30 AM</option>
+	        <option value="11:45 AM">11:45 AM</option>
+ 
+	        <option value="12:00 PM">12:00 PM</option>
+	        <option value="12:15 PM">12:15 PM</option>
+	        <option value="12:30 PM">12:30 PM</option>
+	        <option value="12:45 PM">12:45 PM</option>
+ 
+	        <option value="1:00 PM">1:00 PM</option>
+	        <option value="1:15 PM">1:15 PM</option>
+	        <option value="1:30 PM">1:30 PM</option>
+	        <option value="1:45 PM">1:45 PM</option>
+ 
+	        <option value="2:00 PM">2:00 PM</option>
+	        <option value="2:15 PM">2:15 PM</option>
+	        <option value="2:30 PM">2:30 PM</option>
+	        <option value="2:45 PM">2:45 PM</option>
+ 
+	        <option value="3:00 PM">3:00 PM</option>
+	        <option value="3:15 PM">3:15 PM</option>
+	        <option value="3:30 PM">3:30 PM</option>
+	        <option value="3:45 PM">3:45 PM</option>
+ 
+	        <option value="4:00 PM">4:00 PM</option>
+	        <option value="4:15 PM">4:15 PM</option>
+	        <option value="4:30 PM">4:30 PM</option>
+	        <option value="4:45 PM">4:45 PM</option>
+ 
+	        <option value="5:00 PM">5:00 PM</option>
+	        <option value="5:15 PM">5:15 PM</option>
+	        <option value="5:30 PM">5:30 PM</option>
+	        <option value="5:45 PM">5:45 PM</option>
+ 
+	        <option value="6:00 PM">6:00 PM</option>
+	        <option value="6:15 PM">6:15 PM</option>
+	        <option value="6:30 PM">6:30 PM</option>
+	        <option value="6:45 PM">6:45 PM</option>
+ 
+	        <option value="7:00 PM">7:00 PM</option>
+	        <option value="7:15 PM">7:15 PM</option>
+	        <option value="7:30 PM">7:30 PM</option>
+	        <option value="7:45 PM">7:45 PM</option>
+ 
+	        <option value="8:00 PM">8:00 PM</option>
+	        <option value="8:15 PM">8:15 PM</option>
+	        <option value="8:30 PM">8:30 PM</option>
+	        <option value="8:45 PM">8:45 PM</option>
+ 
+	        <option value="9:00 PM">9:00 PM</option>
+	        <option value="9:15 PM">9:15 PM</option>
+	        <option value="9:30 PM">9:30 PM</option>
+	        <option value="9:45 PM">9:45 PM</option>
+ 
+	        <option value="10:00 PM">10:00 PM</option>
+	        <option value="10:15 PM">10:15 PM</option>
+	        <option value="10:30 PM">10:30 PM</option>
+	        <option value="10:45 PM">10:45 PM</option>
+ 
+	        <option value="11:00 PM">11:00 PM</option>
+	        <option value="11:15 PM">11:15 PM</option>
+	        <option value="11:30 PM">11:30 PM</option>
+	        <option value="11:45 PM">11:45 PM</option>
+	        </select>
+	        </div>
+	    </div>
+
+      
+      <div class="form-group row">
+        <label for="Address">Address</label>
+        <input vs-google-autocomplete vs-latitude="address.components.location.lat" vs-longitude="address.components.location.long" type="text" class="form-control" placeholder="Address" ng-model="address.name" required/>
+      </div>
+        
+   
+      <div class="form-group form-inline row">
+        <label for="Admission">Admission</label>
+        <select placeholder="Admission" ng-model="admis" required/>
+	        <option value=""></option>
+	        
+	        <option value="Free">Free</option>
+	        <option value="Cost">Cost</option>
+	        <option value="Other">Other</option>
+	      </select>
+	      <input type="text" class="form-control" placeholder="Cost to attend the event" ng-show="admis=='Cost'" ng-model="cost"/>
+	      <input type="text" class="form-control" placeholder="Other Admission Required" ng-show="admis=='Other'" ng-model="fee"/>
+	    </div>
+	    
+	    <div class="form-group row">
+	    	<label for="Category">Choose the Category of your Event:  </label>
+	    	<select placeholder="Category" ng-model="cat" required/>
+	    	<option value=""></option>
+	    	
+	    	<option value="Community">Community</option>
+	    	<option value="Family">Familty</option>
+	    	<option value="Arts">Arts</option>
+	    	<option value="Sports">Sports</option>
+	    	<option value="Nightlife">Nightlife</option>
+	    	<option value="Bargain Hunting">Bargain Hunting</option>
+	    	</select>
+	    </div>
+	    	
+
+			<div class="form-inline row">
+			<label for="Cover Photo">Choose a Cover Photo for Your Event Page:   </label>
+	    <input class="btn btn-info indibtn" type="filepicker" data-fp-apikey="AweAnVFs8RaWaeQNHS6jgz" ng-click="upload()" data-fp-mimetype="image/*" data-fp-services="COMPUTER, CONVERT, DROPBOX, GOOGLE_DRIVE, FACEBOOK, INSTAGRAM, GMAIL, IMAGE_SEARCH" data-fp-crop-dim="740, 416" data-fp-crop-force="true" data-fp-crop-ratio="1/1" data-fp-button-text="Choose Image" ng-model="pic" />
+	    </br>
+	    </br>
+	    <div>
+	    <a href="{{pic}}" class="thumbnail" ng-if="pic" target="_blank" align="center"><img ng-src="{{pic}}"></a>
+	    </div>
+	    </div>
+	    
+			<div class="form-group row">
+        <label for="Event Information">Event Information</label>
+        <textarea class="form-control" rows="5" placeholder="Tell us about your event" ng-model="info" required/></textarea>
+      </div>
+      
+      <div class="form-inline text-center">
+      	<div class="fa fa-globe fa-2x fa-fw" aria-hidden="true" ng-click="webfun()" ng-class="{'web': showweb}"></div>
+      	<div class="fa fa-facebook-official fa-2x fa-fw" aria-hidden="true" ng-click="facefun()" ng-class="{'face': showface}"></div>
+      	<div class="fa fa-instagram fa-2x fa-fw" aria-hidden="true" ng-click="instafun()" ng-class="{'insta': showinsta}"></div>
+      	<div class="fa fa-twitter-square fa-2x fa-fw" aria-hidden="true" ng-click="tweetfun()" ng-class="{'tweet': showtweet}"></div>
+      	<div class="fa fa-google-plus-square fa-2x fa-fw" aria-hidden="true" ng-click="goofun()" ng-class="{'goo': showgoo}"></div>
       </div>
       </br>
-
+      
+      <div class="form-inline text-center" ng-show="showweb">
+        <label for="Event's Web Page" class="fa fa-globe fa-2x fa-fw web" aria-hidden="true" ></label>
+        <input type="text" class="form-control" placeholder="Event's Web Page" ng-model="web" />
+      </br>
+      </br>
+      </div>
+      
+      
+      <div class="form-inline text-center" ng-show="showface">
+        <label for="Event's Facebook Page" class="fa fa-facebook-official fa-2x fa-fw face" aria-hidden="true"></label>
+        <input type="text" class="form-control" placeholder="Event's Facebook Page" ng-model="face" />
+      </br>
+      </br>
+      </div>
+      
+      
+      <div class="form-inline text-center" ng-show="showinsta">
+        <label for="Event's Instagram" class="fa fa-instagram fa-2x fa-fw insta" aria-hidden="true"></label>
+        <input type="text" class="form-control" placeholder="Event's Instagram" ng-model="insta" />
+      </br>
+      </br>
+      </div>
+      
+      
+      <div class="form-inline text-center" ng-show="showtweet">
+        <label for="Event's Twitter Page" class="fa fa-twitter-square fa-2x fa-fw tweet" aria-hidden="true"></label>
+        <input type="text" class="form-control" placeholder="Event's Twitter Page" ng-model="tweet" />
+      </br>
+      </br>
+      </div>
+      
+      
+      <div class="form-inline text-center" ng-show="showgoo">
+        <label for="Event's Google+ Page" class="fa fa-google-plus-square fa-2x fa-fw goo" aria-hidden="true"></label>
+        <input type="text" class="form-control" placeholder="Event's Google+ Page" ng-model="google" />
+      </br>
+      </br>
+      </div>
+      
+      </br>
+      	
+      
+      <div class="text-center row">
+      <input type="submit" class="btn btn-info indibtn" id="submit" value="Create Your Event" />
+      </div>
+      </br>
+      </br>
       
 
-      <input type="submit" id="submit" value="Submit" />
-      </div>
       </div>
     </form>
+    
 	</script>
 
   

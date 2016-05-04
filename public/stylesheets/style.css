@@ -1,9 +1,24 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.web {
+    color: #7ac4e9;
 }
 
-a {
-  color: #00B7FF;
+.face {
+    color: #3b5998;
 }
 
+.insta {
+    color: #517fa4;
+}
+
+.tweet {
+    color: #00aced;
+}
+
+.goo {
+    color:#dd4b39;
+}
+
+.indibtn {
+    background: #7ac4e9;
+    color: #FFFFFF;
+}
