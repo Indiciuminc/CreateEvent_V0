@@ -148,9 +148,12 @@ app.controller('MainCtrl', ['$scope', 'events', function($scope, events, uploade
   $scope.upload = function(){
         uploader.pick(
             {
+                services: ['COMPUTER','DROPBOX','GOOGLE_DRIVE', 'FACEBOOK', 'INSTAGRAM', 'CONVERT'],
                 mimetype: 'image/*',
                 language: 'en',
-                services: ['COMPUTER','DROPBOX','GOOGLE_DRIVE', 'FACEBOOK', 'INSTAGRAM'],
+                cropDim: [740, 416],
+                cropRatio: [1/1],
+                cropForce: true,
                 openTo: 'IMAGE_SEARCH'
                 
             },

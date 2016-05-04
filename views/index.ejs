@@ -345,7 +345,7 @@
 
 			<div class="form-inline row">
 			<label for="Cover Photo">Choose a Cover Photo for Your Event Page:   </label>
-	    <input class="btn btn-info" type="filepicker" data-fp-apikey="AweAnVFs8RaWaeQNHS6jgz" ng-click="upload()" data-fp-button-text="Choose Image" ng-model="pic" />
+	    <input class="btn btn-info indibtn" type="filepicker" data-fp-apikey="AweAnVFs8RaWaeQNHS6jgz" ng-click="upload()" data-fp-mimetype="image/*" data-fp-services="COMPUTER, CONVERT, DROPBOX, GOOGLE_DRIVE, FACEBOOK, INSTAGRAM, GMAIL, IMAGE_SEARCH" data-fp-crop-dim="740, 416" data-fp-crop-force="true" data-fp-crop-ratio="1/1" data-fp-button-text="Choose Image" ng-model="pic" />
 	    </br>
 	    </br>
 	    <div>
@@ -359,51 +359,61 @@
       </div>
       
       <div class="form-inline text-center">
-      	<div class="fa fa-globe fa-2x fa-fw" aria-hidden="true" ng-click="webfun()"></div>
-      	<div class="fa fa-facebook-official fa-2x fa-fw" aria-hidden="true" ng-click="facefun()"></div>
-      	<div class="fa fa-instagram fa-2x fa-fw" aria-hidden="true" ng-click="instafun()"></div>
-      	<div class="fa fa-twitter-square fa-2x fa-fw" aria-hidden="true" ng-click="tweetfun()"></div>
-      	<div class="fa fa-google-plus-square fa-2x fa-fw" aria-hidden="true" ng-click="goofun()"></div>
+      	<div class="fa fa-globe fa-2x fa-fw" aria-hidden="true" ng-click="webfun()" ng-class="{'web': showweb}"></div>
+      	<div class="fa fa-facebook-official fa-2x fa-fw" aria-hidden="true" ng-click="facefun()" ng-class="{'face': showface}"></div>
+      	<div class="fa fa-instagram fa-2x fa-fw" aria-hidden="true" ng-click="instafun()" ng-class="{'insta': showinsta}"></div>
+      	<div class="fa fa-twitter-square fa-2x fa-fw" aria-hidden="true" ng-click="tweetfun()" ng-class="{'tweet': showtweet}"></div>
+      	<div class="fa fa-google-plus-square fa-2x fa-fw" aria-hidden="true" ng-click="goofun()" ng-class="{'goo': showgoo}"></div>
       </div>
       </br>
       
       <div class="form-inline text-center" ng-show="showweb">
-        <label for="Event's Web Page" class="fa fa-globe fa-2x fa-fw" aria-hidden="true"></label>
-        <input type="text" class="form-control" placeholder="Event's Web Page" ng-model="web"/>
+        <label for="Event's Web Page" class="fa fa-globe fa-2x fa-fw web" aria-hidden="true" ></label>
+        <input type="text" class="form-control" placeholder="Event's Web Page" ng-model="web" />
+      </br>
+      </br>
       </div>
+      
       
       <div class="form-inline text-center" ng-show="showface">
-        <label for="Event's Web Page" class="fa fa-facebook-official fa-2x fa-fw" aria-hidden="true"></label>
-        <input type="text" class="form-control" placeholder="Event's Web Page" ng-model="face"/>
+        <label for="Event's Facebook Page" class="fa fa-facebook-official fa-2x fa-fw face" aria-hidden="true"></label>
+        <input type="text" class="form-control" placeholder="Event's Facebook Page" ng-model="face" />
+      </br>
+      </br>
       </div>
+      
       
       <div class="form-inline text-center" ng-show="showinsta">
-        <label for="Event's Web Page" class="fa fa-instagram fa-2x fa-fw" aria-hidden="true"></label>
-        <input type="text" class="form-control" placeholder="Event's Web Page" ng-model="insta"/>
+        <label for="Event's Instagram" class="fa fa-instagram fa-2x fa-fw insta" aria-hidden="true"></label>
+        <input type="text" class="form-control" placeholder="Event's Instagram" ng-model="insta" />
+      </br>
+      </br>
       </div>
+      
       
       <div class="form-inline text-center" ng-show="showtweet">
-        <label for="Event's Web Page" class="fa fa-twitter-square fa-2x fa-fw" aria-hidden="true"></label>
-        <input type="text" class="form-control" placeholder="Event's Web Page" ng-model="tweet"/>
+        <label for="Event's Twitter Page" class="fa fa-twitter-square fa-2x fa-fw tweet" aria-hidden="true"></label>
+        <input type="text" class="form-control" placeholder="Event's Twitter Page" ng-model="tweet" />
+      </br>
+      </br>
       </div>
+      
       
       <div class="form-inline text-center" ng-show="showgoo">
-        <label for="Event's Web Page" class="fa fa-google-plus-square fa-2x fa-fw" aria-hidden="true"></label>
-        <input type="text" class="form-control" placeholder="Event's Web Page" ng-model="google"/>
+        <label for="Event's Google+ Page" class="fa fa-google-plus-square fa-2x fa-fw goo" aria-hidden="true"></label>
+        <input type="text" class="form-control" placeholder="Event's Google+ Page" ng-model="google" />
+      </br>
+      </br>
       </div>
-      
-      
-      
-      
-      
-      
       
       </br>
       	
       
       <div class="text-center row">
-      <input type="submit" class="btn btn-info" id="submit" value="Create Your Event" />
+      <input type="submit" class="btn btn-info indibtn" id="submit" value="Create Your Event" />
       </div>
+      </br>
+      </br>
       
 
       </div>
